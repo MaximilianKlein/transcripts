@@ -6,6 +6,7 @@
     "test": "ava && standard"
   },
   "main": "src/find_similar.js",
+  "types": "types/transcript.d.ts",
   "author": "",
   "license": "",
   "dependencies": {
