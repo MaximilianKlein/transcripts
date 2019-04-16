@@ -113,3 +113,15 @@ test('things that should not be similar', t => {
   // then
   t.is(foundIdx, -1)
 })
+
+test('bamigoreng and name should not be similar', t => {
+  // given
+  const word1 = 'name'
+  const word2 = 'bami goreng'
+
+  const notWord1 = 'bamigoreng'
+  // when
+  const foundIdx = findSimilar([word1, word2], notWord1, x => x)
+  // then
+  t.is(foundIdx, 1)
+})
