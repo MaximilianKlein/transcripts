@@ -10,7 +10,8 @@
   "author": "",
   "license": "",
   "dependencies": {
-    "natural": "^0.6.3"
+    "natural": "^0.6.3",
+    "lodash.merge": ">=4.6.2"
   },
   "devDependencies": {
     "standard": "^12.0.1",
