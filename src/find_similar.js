@@ -4,7 +4,7 @@ const metaphone = natural.Metaphone
 const jaroWinkler = natural.JaroWinklerDistance
 
 module.exports = {
-  findSimilar(list, what, itemExtractor, confidence) {
+  findSimilar (list, what, itemExtractor, confidence) {
     confidence = confidence || 0.72
     var foundIdx = list.findIndex(
       item => itemExtractor(item).toLowerCase() === what.toLowerCase()
@@ -21,11 +21,11 @@ module.exports = {
       const idMap = list.map((item, idx) => ({
         index: idx,
         value: itemExtractor(item),
-        distance: jaroWinkler(itemExtractor(item).replace(/[^a-zA-Z0-9]/g, '').toLowerCase(),
+        confidence: jaroWinkler(itemExtractor(item).replace(/[^a-zA-Z0-9]/g, '').toLowerCase(),
           what.replace(/[^a-zA-Z0-9]/g, '').toLowerCase())
-      })).filter(i => i.distance > confidence)
+      })).filter(i => i.confidence > confidence)
       if (idMap.length > 0) {
-        idMap.sort((a, b) => b.distance - a.distance)
+        idMap.sort((a, b) => b.confidence - a.confidence)
         foundIdx = idMap[0].index
       }
     }
